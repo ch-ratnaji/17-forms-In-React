@@ -10,10 +10,10 @@ export default function Login() {
     event.preventDefault();
   }
 
-  function handleInputChange(identifier, event) {
+  function handleInputChange(identifier, value) {
     setEnteredValue((prevValues) => ({
       ...prevValues,
-      [identifier]: event.target.value,
+      [identifier]: value,
     }));
   }
 
@@ -28,7 +28,7 @@ export default function Login() {
             id="email"
             type="email"
             name="email"
-            onChange={(event) => handleInputChange("email", event)}
+            onChange={(event) => handleInputChange("email", event.target.value)}
             value={enteredValue.email}
           />
         </div>
@@ -39,7 +39,9 @@ export default function Login() {
             id="password"
             type="password"
             name="password"
-            onChange={(event) => handleInputChange("password", event)}
+            onChange={(event) =>
+              handleInputChange("password", event.target.value)
+            }
             value={enteredValue.password}
           />
         </div>
